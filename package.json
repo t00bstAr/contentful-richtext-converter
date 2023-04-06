@@ -1,0 +1,27 @@
+{
+  "name": "contentful-richtext-converter",
+  "version": "1.0.0",
+  "description": "This package has been created to make it easier to convert HTML to Contentful RichText, but also to convert richText back to HTML.",
+  "main": "contentful-richtext-converter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t00bstAr/contentful-richtext-converter"
+  },
+  "keywords": [
+    "contentful",
+    "richtext",
+    "html",
+    "convert",
+    "transform",
+    "conversion",
+    "html-to-richtext"
+  ],
+  "author": "t00bstAr",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "jsdom": "^21.1.1"
+  }
+}
