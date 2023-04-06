@@ -9,7 +9,7 @@ function htmlToRichText(html, options){
 	}
 
 	if(typeof options !== 'undefined'){
-		options.entries.forEach(option => {
+		Object.entries(options).forEach(option => {
 			if(typeof settings[option[0]] !== 'undefined'){
 				settings[option[0]] = option[1]
 			}

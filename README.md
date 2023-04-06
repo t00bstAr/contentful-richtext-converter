@@ -1,18 +1,16 @@
-# contentful-richtext-converter
+# Contentful (to) RichText Converter
 This is a module build to convert HTML data into the Contentful ready RichText JSON. 
-It was intended to be use during migrations or when working with the Contentful Management API.
+It is intended to be used during migrations or when working with the Contentful Management API.
 
-It handles all kinds of features and usecases to ensure full functionality with all of the aspects of the contentful RichText Editor.
-Some are easy, *some a quirky* 
+It handles all kinds of features and usecases to ensure full functionality with all of the aspects of the Contentful RichText Editor.
+Some are easy, *some a quirky* – but it's a working progress...
 
-– but it's a working progress...
-
-This is the initial start of this repo and the module is under developlment.
+This is the initial start of this repo and the module is under development.
 ___
-**Use at your own risk :)**
+### Use at your own risk :)
 ___
 ## Current Status
-This is the initial commit and therefore might be up for multiple changes.
+This is the initial commit and therefore might be up for breaking changes.
 
 ## Installation
 
@@ -61,6 +59,35 @@ const result = htmlToRichText(html);
 }
 ```
 
+___
+
+## Features
+The ```htmlToRichText(html,options)``` function takes to parameters: 
+
+```html``` is a string of HTML
+
+```options``` is an Object to enable or disable default settings for html manipulation.
+
+The default settings:
+
+```
+{
+    fixTagsAndSpaces: true,
+    removeDivsAndSpan: true
+}
+```
+
+These features are enabled by default, but can be set to false with the options parameter.
+
+```fixTagsAndSpaces``` does a basic cleanup, closing tags and removing unwanted spacing.
+
+```removeDivsAndSpan``` removes all elements of type ```DIV``` and ```SPAN``` - leaving only the flat valid HTML structure for the RichText JSON.
+
+Though when a DIV or SPAN has a ```data-sys-id``` it can be used to automatically convert the element to a Entry Block or Inline Entry. 
+
+This will be covered later on, when thoroughly tested. 
+
+___
 
 ## Git Repository
 
