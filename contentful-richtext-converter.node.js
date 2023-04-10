@@ -1,6 +1,6 @@
 const {JSDOM} = require("jsdom");
-const {fixTagsAndSpaces, removeDivsAndSpans} = require("./src/html-manipulation");
-const {nodesToContentful} = require("./src/nodes-conversion-handler");
+const {fixTagsAndSpaces, removeDivsAndSpans} = require("./src/cjs/html-manipulation");
+const {nodesToContentful} = require("./src/cjs/nodes-conversion-handler");
 function htmlToRichText(html, options){
 
 	let settings = {
@@ -16,9 +16,11 @@ function htmlToRichText(html, options){
 		})
 	}
 
-	const dom = new JSDOM()
+	let doc;
 	const content = (settings.fixTagsAndSpaces) ? fixTagsAndSpaces(html) : html
-	let doc = new dom.window.DOMParser().parseFromString(content, 'text/html')
+	const dom = new JSDOM()
+	doc = new dom.window.DOMParser().parseFromString(content, 'text/html')
+
 	if(settings.removeDivsAndSpan)
 		doc.body = removeDivsAndSpans(doc.body)
 
