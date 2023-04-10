@@ -30,6 +30,16 @@ npm i contentful-richtext-converter
 
 ## Usage
 
+#### Node (CommonJS)
+
+```js
+const { htmlToRichText } = require("contentful-richtext-converter");
+const html = '<p>Hello <strong>World</strong></p>';
+const result = htmlToRichText(html);
+```
+
+#### Browser (ESM)
+
 ```js
 import { htmlToRichText } from 'contentful-richtext-converter';
 const html = '<p>Hello <strong>World</strong></p>';
