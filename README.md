@@ -18,7 +18,7 @@ Use at your own risk :)
 This is the initial commit and therefore might be up for breaking changes.
 
 **Update:**
-Still undergoing possible changes, but currently set up to support both ESM og CommonJS with browser and node specific verisons.
+Still undergoing possible changes, but currently set up to support both ESM og CommonJS with browser and node specific versions.
 
 ## Installation
 
