@@ -1,17 +1,17 @@
-# Contentful (to) RichText Converter
+# Contentful RichText Converter
 
-Under development...
+
 
 [![npm version](https://img.shields.io/npm/v/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
 [![npm license](https://img.shields.io/npm/l/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
 
-This is a module build to convert HTML data into the Contentful ready RichText JSON.
+
+This is a module build to convert HTML data into the Contentful ready RichText JSON, and convert RichText back to HTML. 
 It is intended to be used during migrations or when working with the Contentful Management API.
 
 It handles all kinds of features and usecases to ensure full functionality with all of the aspects of the Contentful RichText Editor.
 Some are easy, *some a quirky* – but it's a working progress...
 
-This is the initial start of this repo and the module is under development.
 
 Use at your own risk :)
 
@@ -27,7 +27,7 @@ Using [npm](https://www.npmjs.com/package/contentful-richtext-converter):
 npm i contentful-richtext-converter
 ```
 
-## Usage
+## Usage (HTML to RichText)
 
 #### Node (CommonJS)
 
@@ -45,7 +45,7 @@ const html = '<p>Hello <strong>World</strong></p>';
 const result = htmlToRichText(html);
 ```
 
-## Output:
+####  Output:
 
 ```json
 {
@@ -78,7 +78,33 @@ const result = htmlToRichText(html);
 }
 ```
 
-___
+You might also need to validate and test an HTML output from the RichText data.
+This is just a simple RichText to HTML output. It allows to output - and work with all basic HTML elements of the RichText editor and supports hyperlinks, 
+but isn't the "current" solution for deeper outputs with Entry blocks, Assets and Inline Entries. This will be covered later on, but for now this is just a simple conversion.
+
+## Usage (RichText to HTML)
+
+#### Node (CommonJS)
+
+```js
+const { richTextToHtml } = require("contentful-richtext-converter");
+const json = {"nodeType": "document", "data": {}, "content": [{"nodeType": "paragraph", "data": {}, "content": [{"nodeType": "text", "value": "Hello ", "marks": [], "data": {}}, {"nodeType": "text", "value": "World", "marks": [{"type": "bold"}], "data": {}}]}]};
+const result = richTextToHtml(json);
+```
+
+#### Browser (ESM)
+
+```js
+import { richTextToHtml } from 'contentful-richtext-converter';
+const json = {"nodeType": "document", "data": {}, "content": [{"nodeType": "paragraph", "data": {}, "content": [{"nodeType": "text", "value": "Hello ", "marks": [], "data": {}}, {"nodeType": "text", "value": "World", "marks": [{"type": "bold"}], "data": {}}]}]};
+const result = richTextToHtml(json);
+```
+
+####  Output:
+
+```html
+<p>Hello <strong>World</strong></p>
+```
 
 ## Features
 The ```htmlToRichText(html,options)``` function takes to parameters:

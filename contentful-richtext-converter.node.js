@@ -1,6 +1,6 @@
 const {JSDOM} = require("jsdom");
 const {fixTagsAndSpaces, removeDivsAndSpans} = require("./src/cjs/html-manipulation");
-const {nodesToContentful} = require("./src/cjs/nodes-conversion-handler");
+const {nodesToContentful, nodesToHtml} = require("./src/cjs/nodes-conversion-handler");
 function htmlToRichText(html, options){
 
 	let settings = {
@@ -39,4 +39,8 @@ function htmlToRichText(html, options){
 	return data
 
 }
-module.exports = { htmlToRichText }
+function richTextToHtml(json,options){
+	if(typeof json.content === 'undefined') return ''
+	return nodesToHtml(json);
+}
+module.exports = { htmlToRichText, richTextToHtml }

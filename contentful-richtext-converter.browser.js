@@ -1,5 +1,5 @@
 import {fixTagsAndSpaces, removeDivsAndSpans} from "./src/mjs/html-manipulation";
-import {nodesToContentful} from "./src/mjs/nodes-conversion-handler";
+import {nodesToContentful, nodesToHtml} from "./src/mjs/nodes-conversion-handler";
 export function htmlToRichText(html, options){
 
 	let settings = {
@@ -36,4 +36,8 @@ export function htmlToRichText(html, options){
 
 	return data
 
+}
+export function richTextToHtml(json,options){
+	if(typeof json.content === 'undefined') return ''
+	return nodesToHtml(json);
 }
