@@ -3,12 +3,12 @@ const nodesToAllow = ['H1','H2','H3','H4','H5','H6','P','UL','OL','LI','BLOCKQUO
 
 // Regex to fix invalid html spaces and tags not suitable for conversion
 export function fixTagsAndSpaces(html) {
-	const regex = /<img\s+[^>]*src="([^"]*)"[^>]*(?<!\/)>/gi;
-	html = html.replace(regex, function(match) {
-		if (match.endsWith('/>')) {
+	const regex = /<img([^>]*)>/gi;
+	html = html.replace(regex, function(match, p1) {
+		if (/\/\s*>$/.test(p1)) {
 			return match;
 		} else {
-			return match.slice(0, -1) + '/>';
+			return '<img' + p1.trim() + ' />';
 		}
 	}); // Escape Img tags not closed
 	html = html.replace(/\\r/g, ''); // Remove backslash R
