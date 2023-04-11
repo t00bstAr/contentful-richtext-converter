@@ -90,10 +90,10 @@ The ```htmlToRichText(html,options)``` function takes to parameters:
 
 The default settings:
 
-```js
+```json
 {
-    fixTagsAndSpaces: true,
-    removeDivsAndSpan: true
+    "fixTagsAndSpaces": true,
+    "removeDivsAndSpan": true
 }
 ```
 
