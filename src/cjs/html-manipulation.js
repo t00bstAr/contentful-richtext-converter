@@ -1,3 +1,7 @@
+const {JSDOM} = require("jsdom");
+const dom = new JSDOM()
+const document = dom.window.document;
+
 // Allowed html
 const nodesToAllow = ['H1','H2','H3','H4','H5','H6','P','UL','OL','LI','BLOCKQUOTE','TABLE','THEAD','TBODY','TFOOT','TR','TH','TD','STRONG','B','EM','I','U','SUP','SUB','CODE','A','IMG','HR','DIV','SPAN']
 
