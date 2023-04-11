@@ -1,6 +1,6 @@
 # Contentful RichText Converter
 
-
+🚀 HTML to RichText and back again...
 
 [![npm version](https://img.shields.io/npm/v/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
 [![npm license](https://img.shields.io/npm/l/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
@@ -12,12 +12,18 @@ It is intended to be used during migrations or when working with the Contentful 
 It handles all kinds of features and usecases to ensure full functionality with all of the aspects of the Contentful RichText Editor.
 Some are easy, *some a quirky* – but it's a working progress...
 
-
 Use at your own risk :)
+
+## Playground
+
+Want to try it out?
+
+[Jump the Playground](https://contentful-richtext-converter.netlify.app/) where you can write or "copy-paste" a chunk of HTML and instantly get RichText JSON back – Try it out, and get busy coding :)
 
 ## Current Status
 
-Still a working progress with possible future changes, but currently set up to support both ESM (browser) and CommonJS with node.
+The project is currently still a working progress with possible future changes, but currently set up to support both ESM (browser) and CommonJS with node.
+The functionality is somewhat feature complete, but further testing, typescript and even better implementations will be coming in the near future.
 
 ## Installation
 
