@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Contentful RichText Converter</h1>
-  <p>🚀 HTML to RichText and back again...</p>
+  <p>HTML to RichText and back again.</p>
   <a href="https://www.npmjs.com/package/contentful-richtext-converter">
     <img alt="NPM Version" src="https://img.shields.io/npm/v/contentful-richtext-converter">
   </a>
@@ -10,18 +10,19 @@
 
 </div>
 
+___
 
 This is a module build to convert HTML data into the Contentful ready RichText JSON, and convert RichText back to HTML. 
 It is intended to be used during migrations or when working with the Contentful Management API.
 
 It handles all kinds of features and usecases to ensure full functionality with all of the aspects of the Contentful RichText Editor.
-Some are easy, *some a quirky* - but it's a working progress...
+Some are easy, *some a quirky* - but it's a working progress.
 
 Use at your own risk :)
 
 ## Playground
 
-Want to try it out?
+**Want to try it out?**
 
 [Jump the Playground](https://contentful-richtext-converter.netlify.app/) where you can write or "copy-paste" a chunk of HTML and instantly get RichText JSON back - Try it out, and get busy coding :)
 
@@ -33,6 +34,7 @@ The functionality is somewhat feature complete, but further testing, typescript 
 ## Installation
 
 Using [npm](https://www.npmjs.com/package/contentful-richtext-converter):
+
 
 ```sh
 npm i contentful-richtext-converter
