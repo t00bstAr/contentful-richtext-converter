@@ -1,8 +1,9 @@
 # Contentful (to) RichText Converter
 
+Under development...
+
 [![npm version](https://img.shields.io/npm/v/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
 [![npm license](https://img.shields.io/npm/l/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
-
 
 This is a module build to convert HTML data into the Contentful ready RichText JSON.
 It is intended to be used during migrations or when working with the Contentful Management API.
@@ -15,10 +16,8 @@ This is the initial start of this repo and the module is under development.
 Use at your own risk :)
 
 ## Current Status
-This is the initial commit and therefore might be up for breaking changes.
 
-**Update:**
-Still undergoing possible changes, but currently set up to support both ESM og CommonJS with browser and node specific versions.
+Still a working progress with possible future changes, but currently set up to support both ESM (browser) and CommonJS with node.
 
 ## Installation
 
