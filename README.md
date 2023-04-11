@@ -1,10 +1,14 @@
-# Contentful RichText Converter
+<div align="center">
+  <h1>Contentful RichText Converter</h1>
+  <p>🚀 HTML to RichText and back again...</p>
+  <a href="https://www.npmjs.com/package/contentful-richtext-converter">
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/contentful-richtext-converter">
+  </a>
+  <a href="https://www.npmjs.com/package/contentful-richtext-converter">
+    <img src="https://img.shields.io/npm/l/contentful-richtext-converter" alt="NPM License" />
+  </a>
 
-🚀 HTML to RichText and back again...
-
-
-[![npm version](https://img.shields.io/npm/v/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
-[![npm license](https://img.shields.io/npm/l/contentful-richtext-converter)](https://www.npmjs.com/package/contentful-richtext-converter)
+</div>
 
 
 This is a module build to convert HTML data into the Contentful ready RichText JSON, and convert RichText back to HTML. 
