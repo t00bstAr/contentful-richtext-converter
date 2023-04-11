@@ -11,6 +11,9 @@ function fixTagsAndSpaces(html) {
 			return match.slice(0, -1) + '/>';
 		}
 	}); // Escape Img tags not closed
+	html = html.replace(/\\r/g, ''); // Remove backslash R
+	html = html.replace(/\\n/g, ''); // Remove backslash N
+	html = html.replace(/\n/g, ''); // Remove backslash N
 	html = html.replace(/&(?!\w+;)/g, '&amp;'); // Escape AMP
 	html = html.replace(/&nbsp;/g, ' '); // Remove none-breaking-space
 	html = html.replace(/<br>/g, '<br/>'); // Close breaks
@@ -68,7 +71,7 @@ function removeDivsAndSpans(node) {
 			parentNode.removeChild(node);
 		}
 
-	} else if (node.nodeType === Node.ELEMENT_NODE && (node.nodeName === "LI" || node.nodeName === "TD" || node.nodeName === "TH")) {
+	} else if (node.nodeType === Node.ELEMENT_NODE && (node.nodeName === "LI" || node.nodeName === "TD" || node.nodeName === "TH" || node.nodeName === "BODY")) {
 
 		// Wrap plaintext nodes and non-heading, non-paragraph elements with a p element
 		const childNodes = node.childNodes;

@@ -69,11 +69,11 @@ const nodesToContentful = (node,marks) => {
 		case 'TABLE':
 		case 'TH':
 		case 'TD':
-			return {
+			return (contentHandler(node.childNodes).length > 0) ? {
 				nodeType: nodeNameMap[node.nodeName],
 				data: {},
 				content: contentHandler(node.childNodes)
-			}
+			} : false
 		case 'THEAD':
 		case 'TBODY':
 			return contentHandler(node.childNodes)
