@@ -1,6 +1,6 @@
 {
   "name": "contentful-richtext-converter",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Make it easier to convert HTML to Contentful RichText - but also to convert RichText back to HTML.",
   "main": "contentful-richtext-converter.node.js",
   "browser": "contentful-richtext-converter.browser.js",
