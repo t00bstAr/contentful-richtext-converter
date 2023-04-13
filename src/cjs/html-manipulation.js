@@ -12,7 +12,7 @@ function fixTagsAndSpaces(html) {
 		if (/\/\s*>$/.test(p1)) {
 			return match;
 		} else {
-			return '<img' + p1.trim() + ' />';
+			return '<img ' + p1.trim() + ' />';
 		}
 	}); // Escape Img tags not closed
 	html = html.replace(/\\r/g, ''); // Remove backslash R
