@@ -173,6 +173,25 @@ const nodesToContentful = (node,marks) => {
 			} else {
 				return false
 			}
+		case 'VIDEO':
+			if(typeof node.src !== 'undefined' && node.src.includes('videos.ctfassets.net')){
+				let value = node.src.split("/")[4]
+				return {
+					nodeType: 'embedded-asset-block',
+					data: {
+						"target": {
+							"sys": {
+								"id": value,
+								"type": "Link",
+								"linkType": "Asset"
+							}
+						}
+					},
+					content: []
+				}
+			} else {
+				return false
+			}
 		case 'HR':
 			return {
 				"nodeType": "hr",

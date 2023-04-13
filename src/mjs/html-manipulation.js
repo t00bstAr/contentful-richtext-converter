@@ -1,5 +1,5 @@
 // Allowed html
-const nodesToAllow = ['H1','H2','H3','H4','H5','H6','P','UL','OL','LI','BLOCKQUOTE','TABLE','THEAD','TBODY','TFOOT','TR','TH','TD','STRONG','B','EM','I','U','SUP','SUB','CODE','A','IMG','HR','DIV','SPAN']
+const nodesToAllow = ['H1','H2','H3','H4','H5','H6','P','UL','OL','LI','BLOCKQUOTE','TABLE','THEAD','TBODY','TFOOT','TR','TH','TD','STRONG','B','EM','I','U','SUP','SUB','CODE','A','IMG','VIDEO','HR','DIV','SPAN']
 
 // Regex to fix invalid html spaces and tags not suitable for conversion
 export function fixTagsAndSpaces(html) {
@@ -21,17 +21,31 @@ export function fixTagsAndSpaces(html) {
 	return html;
 }
 
+function parentNodeRemover(node){
+	let parentNode = node.parentNode;
+	while (node.firstChild) {
+		const child = node.removeChild(node.firstChild);
+		if (child.nodeType === Node.ELEMENT_NODE) {
+			child.classList.remove(...child.classList);
+			parentNode.insertBefore(child, node);
+		} else if (child.nodeType === Node.TEXT_NODE) {
+			if (child.textContent.trim() !== '') {
+				if (parentNode.lastChild === node) {
+					parentNode.appendChild(child);
+				} else {
+					parentNode.insertBefore(child, node);
+				}
+			}
+		}
+	}
+	parentNode.removeChild(node);
+}
+
 // Remove divs and span that doesn't serve a purpose
 export function removeDivsAndSpans(node) {
 
 	// Remove classes from the current node
 	node.classList.remove(...node.classList);
-
-	// Fix for JS_DOM
-	const Node = {
-		ELEMENT_NODE: 1,
-		TEXT_NODE: 3
-	}
 
 	// Recursively remove divs and spans from child nodes
 	if (node.hasChildNodes()) {
@@ -45,30 +59,15 @@ export function removeDivsAndSpans(node) {
 	}
 
 	if(node.nodeType === Node.ELEMENT_NODE && !nodesToAllow.includes(node.nodeName)){
-		node.parentNode.removeChild(node)
+		if(node.nodeName !== 'BODY')
+			parentNodeRemover(node)
 	}
 
 	if (node.nodeType === Node.ELEMENT_NODE && (node.nodeName === "DIV" || node.nodeName === "SPAN")) {
 
 		const dataSysId = node.getAttribute("data-sys-id");
 		if (!dataSysId) {
-			const parentNode = node.parentNode;
-			while (node.firstChild) {
-				const child = node.removeChild(node.firstChild);
-				if (child.nodeType === Node.ELEMENT_NODE) {
-					child.classList.remove(...child.classList);
-					parentNode.insertBefore(child, node);
-				} else if (child.nodeType === Node.TEXT_NODE) {
-					if (child.textContent.trim() !== '') {
-						if (parentNode.lastChild === node) {
-							parentNode.appendChild(child);
-						} else {
-							parentNode.insertBefore(child, node);
-						}
-					}
-				}
-			}
-			parentNode.removeChild(node);
+			parentNodeRemover(node)
 		}
 
 	} else if (node.nodeType === Node.ELEMENT_NODE && (node.nodeName === "LI" || node.nodeName === "TD" || node.nodeName === "TH" || node.nodeName === "BODY")) {
