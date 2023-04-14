@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://contentful-richtext-converter.netlify.app/favicon.svg" width="120" alt="Contentful RichText Converter Logo" />
   <h1>Contentful RichText Converter</h1>
   <p>HTML to RichText and back again.</p>
   <a href="https://www.npmjs.com/package/contentful-richtext-converter">
@@ -7,7 +8,6 @@
   <a href="https://www.npmjs.com/package/contentful-richtext-converter">
     <img src="https://img.shields.io/npm/l/contentful-richtext-converter" alt="NPM License" />
   </a>
-
 </div>
 
 ___
@@ -20,18 +20,20 @@ Some are easy, *some a quirky* - but it's a working progress.
 
 Use at your own risk :)
 
-## Playground
+## 🚀 Playground
 
 **Want to try it out?**
 
-[Jump the Playground](https://contentful-richtext-converter.netlify.app/) where you can write or "copy-paste" a chunk of HTML and instantly get RichText JSON back - Try it out, and get busy coding :)
+[Jump to the Playground](https://contentful-richtext-converter.netlify.app/) where you can "write" or "copy-paste" a chunk of HTML and instantly get RichText JSON back. 
 
-## Current Status
+Try it out, and get busy coding :)
+
+## 🔎 Current Status
 
 The project is currently still a working progress with possible future changes, but currently set up to support both ESM (browser) and CommonJS with node.
 The functionality is somewhat feature complete, but further testing, typescript and even better implementations will be coming in the near future.
 
-## Installation
+## ⚙️ Installation
 
 Using [npm](https://www.npmjs.com/package/contentful-richtext-converter):
 
@@ -40,7 +42,7 @@ Using [npm](https://www.npmjs.com/package/contentful-richtext-converter):
 npm i contentful-richtext-converter
 ```
 
-## Usage (HTML to RichText)
+### Usage (HTML to RichText)
 
 #### Node (CommonJS)
 
@@ -95,7 +97,7 @@ You might also need to validate and test an HTML output from the RichText data.
 This is just a simple RichText to HTML output. It allows to output - and work with all basic HTML elements of the RichText editor and supports hyperlinks, 
 but isn't the "current" solution for deeper outputs with Entry blocks, Assets and Inline Entries. This will be covered later on, but for now this is just a simple conversion.
 
-## Usage (RichText to HTML)
+### Usage (RichText to HTML)
 
 #### Node (CommonJS)
 
@@ -119,7 +121,7 @@ const result = richTextToHtml(json);
 <p>Hello <strong>World</strong></p>
 ```
 
-## Features
+## ✨ Features
 The ```htmlToRichText(html,options)``` function takes to parameters:
 
 ```html``` is a string of HTML
@@ -147,6 +149,6 @@ This will be covered later on, when thoroughly tested.
 
 ___
 
-## Git Repository
+## 😺 Git Repository
 
 https://github.com/t00bstAr/contentful-richtext-converter
