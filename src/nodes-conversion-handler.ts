@@ -1,14 +1,10 @@
 // Export types
-export interface ParentMark {
-    type: string
-}
-
 export interface TagNameMap {
     [key: string]: string;
 }
 
 // Specific content handler
-const contentHandler = (nodes:[any], parentMarks?:[ParentMark]) => {
+const contentHandler = (nodes:[any], parentMarks?:any) => {
 	let array:any = []
 	let rows = Array.from(nodes).filter(node => node.nodeName === 'TR')
 	if(rows.length > 0){
@@ -36,7 +32,7 @@ const contentHandler = (nodes:[any], parentMarks?:[ParentMark]) => {
 }
 
 // Recursive nodes to contentful richtext
-export const nodesToContentful = (node:any, marks?:[ParentMark]) => {
+export const nodesToContentful = (node:any, marks?:any) => {
 	const nodeNameMap:any = {
 		'H1': 'heading-1',
 		'H2': 'heading-2',
@@ -94,9 +90,7 @@ export const nodesToContentful = (node:any, marks?:[ParentMark]) => {
 		case 'SUP':
 		case 'SUB':
 		case 'CODE':
-			if(typeof marks !== 'undefined')
-                marks = [...marks]
-
+            marks = typeof marks !== 'undefined' ? marks : [];
             marks.push({type: markTypeMap[node.nodeName]})
 			return contentHandler(node.childNodes, marks)
 		case 'A':
@@ -252,11 +246,7 @@ export const nodesToContentful = (node:any, marks?:[ParentMark]) => {
 				return false
 			}
 		default:
-            if(typeof marks !== 'undefined')
-                marks = [...marks]
-
-			//marks = typeof marks !== 'undefined' ? marks : [];
-
+            marks = typeof marks !== 'undefined' ? marks : [];
             if(node.textContent === '\n' || node.textContent === '' || node.textContent === ' ') return false
 			let textNode = {
 				nodeType: 'text',
@@ -275,7 +265,7 @@ export const nodesToHtml = (node:any) => {
 	}
 	if (node.nodeType === 'text') {
 		let text = node.value
-		node.marks.forEach((mark:ParentMark) => {
+		node.marks.forEach( (mark: any) => {
 			switch (mark.type) {
 				case 'bold':
 					text = `<strong>${text}</strong>`
