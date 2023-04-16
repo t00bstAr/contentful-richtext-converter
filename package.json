@@ -4,6 +4,9 @@
   "description": "Easily convert HTML to Contentful RichText and back to HTML",
   "homepage": "https://contentful-richtext-converter.netlify.app",
   "types": "./dist/types/contentful-richtext-converter.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly & tsc --project tsconfig.esm.json & tsc --project tsconfig.cjs.json",
     "test": "echo \"Error: no test specified\" && exit 1"
