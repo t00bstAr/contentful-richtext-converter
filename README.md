@@ -15,13 +15,12 @@
   <a href="https://contentful-richtext-converter.netlify.app">
     <img src="https://img.shields.io/netlify/d1afdd0d-9141-45a8-b330-08889fde867c" alt="Playground on Netlify" />
   </a>
-  <a href="https://www.npmjs.com/package/contentful-richtext-converter">
+  <a href="https://github.com/t00bstAr/contentful-richtext-converter">
     <img src="https://img.shields.io/github/stars/t00bstAr/contentful-richtext-converter?style=social" alt="GitHub Stars" />
   </a>
-
 </div>
 
-___
+<br/><br/>
 
 This is a module build to convert HTML data into the Contentful ready RichText JSON, and convert RichText back to HTML. 
 It is intended to be used during migrations or when working with the Contentful Management API.
