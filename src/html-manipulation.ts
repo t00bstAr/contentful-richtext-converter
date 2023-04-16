@@ -1,8 +1,22 @@
+let moduleType:string = 'ESM';
+let cjsDocument:any;
+if (typeof require !== "undefined" && typeof __dirname !== "undefined") {
+	const {JSDOM} = require("jsdom");
+	const dom = new JSDOM()
+	cjsDocument = dom.window.document;
+	moduleType = 'CJS'
+}
+
 // Allowed html
-const nodesToAllow = ['H1','H2','H3','H4','H5','H6','P','UL','OL','LI','BLOCKQUOTE','TABLE','THEAD','TBODY','TFOOT','TR','TH','TD','STRONG','B','EM','I','U','SUP','SUB','CODE','A','IMG','VIDEO','HR','DIV','SPAN']
+const nodesToAllow:string[] = ['H1','H2','H3','H4','H5','H6','P','UL','OL','LI','BLOCKQUOTE','TABLE','THEAD','TBODY','TFOOT','TR','TH','TD','STRONG','B','EM','I','U','SUP','SUB','CODE','A','IMG','VIDEO','HR','DIV','SPAN']
+
+const Node = {
+	ELEMENT_NODE: 1,
+	TEXT_NODE: 3
+}
 
 // Regex to fix invalid html spaces and tags not suitable for conversion
-export function fixTagsAndSpaces(html) {
+export function fixTagsAndSpaces(html:string) {
 	const regex = /<img([^>]*)>/gi;
 	html = html.replace(regex, function(match, p1) {
 		if (/\/\s*>$/.test(p1)) {
@@ -21,7 +35,7 @@ export function fixTagsAndSpaces(html) {
 	return html;
 }
 
-function parentNodeRemover(node){
+function parentNodeRemover(node:any){
 	let parentNode = node.parentNode;
 	while (node.firstChild) {
 		const child = node.removeChild(node.firstChild);
@@ -42,7 +56,7 @@ function parentNodeRemover(node){
 }
 
 // Remove divs and span that doesn't serve a purpose
-export function removeDivsAndSpans(node) {
+export function removeDivsAndSpans(node:any) {
 
 	// Remove classes from the current node
 	node.classList.remove(...node.classList);
@@ -77,12 +91,14 @@ export function removeDivsAndSpans(node) {
 		for (let i = 0; i < childNodes.length; i++) {
 			const child = childNodes[i];
 			if (child.nodeType === Node.TEXT_NODE && child.textContent.trim() !== '') {
-				const p = document.createElement("p");
+				const wrapper = (moduleType === 'CJS') ? cjsDocument : document
+				const p = wrapper.createElement("p");
 				p.textContent = child.textContent;
 				node.replaceChild(p, child);
 				i--;
 			} else if (child.nodeType === Node.ELEMENT_NODE && !["H1", "H2", "H3", "H4", "H5", "H6", "P"].includes(child.nodeName)) {
-				const p = document.createElement("p");
+				const wrapper = (moduleType === 'CJS') ? cjsDocument : document
+				const p = wrapper.createElement("p");
 				p.appendChild(child.cloneNode(true));
 				node.replaceChild(p, child);
 				i--;

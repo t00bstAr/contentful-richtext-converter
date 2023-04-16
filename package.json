@@ -1,16 +1,18 @@
 {
   "name": "contentful-richtext-converter",
   "version": "1.2.8",
-  "description": "Make it easier to convert HTML to Contentful RichText - but also to convert RichText back to HTML.",
-  "main": "contentful-richtext-converter.node.js",
-  "browser": "contentful-richtext-converter.browser.js",
+  "description": "Easily convert HTML to Contentful RichText and back to HTML",
+  "homepage": "https://contentful-richtext-converter.netlify.app",
+  "main": "./dist/esm/contentful-richtext-converter.js",
+  "types": "./dist/types/contentful-richtext-converter.d.ts",
   "scripts": {
+    "build": "tsc --emitDeclarationOnly & tsc --project tsconfig.esm.json & tsc --project tsconfig.cjs.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "exports": {
-    "import": "./contentful-richtext-converter.browser.js",
-    "require": "./contentful-richtext-converter.node.js",
-    "default": "./contentful-richtext-converter.node.js"
+    "import": "./dist/esm/contentful-richtext-converter.js",
+    "require": "./dist/cjs/contentful-richtext-converter.js",
+    "default": "./dist/esm/contentful-richtext-converter.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +31,8 @@
   "license": "MIT",
   "dependencies": {
     "jsdom": "^21.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
   }
 }
