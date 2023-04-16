@@ -1,6 +1,6 @@
 {
   "name": "contentful-richtext-converter",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Easily convert HTML to Contentful RichText and back to HTML",
   "homepage": "https://contentful-richtext-converter.netlify.app",
   "types": "./dist/types/contentful-richtext-converter.d.ts",
