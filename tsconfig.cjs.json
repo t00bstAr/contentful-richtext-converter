@@ -6,6 +6,6 @@
     "declarationDir": "dist/types"
   },
   "files": ["contentful-richtext-converter.ts"],
-  "include": ["lib/**/*"],
-  "exclude": ["node_modules", "playground", "src", "**/*.test.js"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "playground", "**/*.test.js"]
 }

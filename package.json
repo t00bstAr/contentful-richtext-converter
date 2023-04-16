@@ -9,7 +9,6 @@
   ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly & tsc --project tsconfig.esm.json & tsc --project tsconfig.cjs.json",
-    "postbuild": "rimraf dist/**/*.map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "exports": {
@@ -36,7 +35,6 @@
     "jsdom": "^21.1.1"
   },
   "devDependencies": {
-    "typescript": "^5.0.4",
-    "rimraf": "^5.0.0"
+    "typescript": "^5.0.4"
   }
 }
