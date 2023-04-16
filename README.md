@@ -6,8 +6,19 @@
     <img alt="NPM Version" src="https://img.shields.io/npm/v/contentful-richtext-converter">
   </a>
   <a href="https://www.npmjs.com/package/contentful-richtext-converter">
+    <img src="https://img.shields.io/npm/types/contentful-richtext-converter" alt="Types Typescript" />
+  </a>
+  <a href="https://www.npmjs.com/package/contentful-richtext-converter">
     <img src="https://img.shields.io/npm/l/contentful-richtext-converter" alt="NPM License" />
   </a>
+  <br/>
+  <a href="https://contentful-richtext-converter.netlify.app">
+    <img src="https://img.shields.io/netlify/d1afdd0d-9141-45a8-b330-08889fde867c" alt="Playground on Netlify" />
+  </a>
+  <a href="https://www.npmjs.com/package/contentful-richtext-converter">
+    <img src="https://img.shields.io/github/stars/t00bstAr/contentful-richtext-converter?style=social" alt="GitHub Stars" />
+  </a>
+
 </div>
 
 ___
