@@ -32,6 +32,7 @@ export function fixTagsAndSpaces(html:string) {
 	html = html.replace(/&nbsp;/g, ' '); // Remove none-breaking-space
 	html = html.replace(/<br>/g, '<br/>'); // Close breaks
 	html = html.replace(/<hr>/g, '<hr/>'); // Close hr
+    html = html.replace(/<br\/>/g, '\n'); // Replace BR with new line
 	return html;
 }
 
@@ -96,7 +97,7 @@ export function removeDivsAndSpans(node:any) {
 				p.textContent = child.textContent;
 				node.replaceChild(p, child);
 				i--;
-			} else if (child.nodeType === Node.ELEMENT_NODE && !["H1", "H2", "H3", "H4", "H5", "H6", "P"].includes(child.nodeName)) {
+			} else if (child.nodeType === Node.ELEMENT_NODE && !["H1", "H2", "H3", "H4", "H5", "H6", "P", "UL", "OL"].includes(child.nodeName)) {
 				const wrapper = (moduleType === 'CJS') ? cjsDocument : document
 				const p = wrapper.createElement("p");
 				p.appendChild(child.cloneNode(true));

@@ -265,6 +265,7 @@ export const nodesToHtml = (node:any) => {
 	}
 	if (node.nodeType === 'text') {
 		let text = node.value
+        text = text.replace(/\n/g, '<br/>'); // new line with BR
 		node.marks.forEach( (mark: any) => {
 			switch (mark.type) {
 				case 'bold':
@@ -289,7 +290,8 @@ export const nodesToHtml = (node:any) => {
 		})
 		return text
 	}
-	const sub = node.content.map(nodesToHtml).join('')
+	let sub = node.content.map(nodesToHtml).join('')
+    sub = sub.replace(/\n/g, '<br/>'); // new line with BR
 	let tagNameMap:TagNameMap = {
 		'paragraph': 'p',
 		'heading-1': 'h1',
