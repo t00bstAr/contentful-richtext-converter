@@ -247,7 +247,7 @@ export const nodesToContentful = (node:any, marks?:any) => {
 			}
 		default:
             marks = typeof marks !== 'undefined' ? marks : [];
-            if(node.textContent === '\n' || node.textContent === '' || node.textContent === ' ') return false
+            if(node.textContent === '\n' || node.textContent === '') return false
 			let textNode = {
 				nodeType: 'text',
 				value: node.textContent,
@@ -255,84 +255,5 @@ export const nodesToContentful = (node:any, marks?:any) => {
 				data: {},
 			}
 			return textNode
-	}
-}
-
-// Recursive nodes to html
-export const nodesToHtml = (node:any) => {
-	if (node.nodeType === 'document') {
-		return node.content.map(nodesToHtml).join('')
-	}
-	if (node.nodeType === 'text') {
-		let text = node.value
-        text = text.replace(/\n/g, '<br/>'); // new line with BR
-		node.marks.forEach( (mark: any) => {
-			switch (mark.type) {
-				case 'bold':
-					text = `<strong>${text}</strong>`
-					break
-				case 'italic':
-					text = `<em>${text}</em>`
-					break
-				case 'underline':
-					text = `<u>${text}</u>`
-					break
-				case 'superscript':
-					text = `<sup>${text}</sup>`
-					break
-				case 'subscript':
-					text = `<sub>${text}</sub>`
-					break
-				case 'code':
-					text = `<pre><code>${text}</code></pre>`
-					break
-			}
-		})
-		return text
-	}
-	let sub = node.content.map(nodesToHtml).join('')
-    sub = sub.replace(/\n/g, '<br/>'); // new line with BR
-	let tagNameMap:TagNameMap = {
-		'paragraph': 'p',
-		'heading-1': 'h1',
-		'heading-2': 'h2',
-		'heading-3': 'h3',
-		'heading-4': 'h4',
-		'heading-5': 'h5',
-		'heading-6': 'h6',
-		'unordered-list': 'ul',
-		'ordered-list': 'ol',
-		'list-item': 'li',
-		'text':'span',
-		'blockquote': 'blockquote',
-		'hr':'hr',
-		'table': 'table',
-		'table-row': 'tr',
-		'table-header-cell': 'th',
-		'table-cell': 'td'
-	}
-	switch (node.nodeType) {
-		case 'paragraph':
-		case 'heading-1':
-		case 'heading-2':
-		case 'heading-3':
-		case 'heading-4':
-		case 'heading-5':
-		case 'heading-6':
-		case 'list-item':
-		case 'ordered-list':
-		case 'unordered-list':
-		case 'blockquote':
-		case 'table':
-		case 'table-row':
-		case 'table-header-cell':
-		case 'table-cell':
-			return `<${tagNameMap[node.nodeType]}>${sub}</${tagNameMap[node.nodeType]}>`
-		case 'hr':
-			return `<hr/>`
-		case 'hyperlink':
-			return `<a href="${node.data.uri}" target="${node.data.target}" rel="${node.data.rel}">${sub}</a>`
-		default:
-			return sub
 	}
 }

@@ -6,6 +6,8 @@
     "sourceMap": false,
     "allowJs": true,
     "moduleResolution": "Node",
-    "declaration": true,
+    "declaration": true
+    //"resolveJsonModule": true,
+    //"esModuleInterop": true
   }
 }

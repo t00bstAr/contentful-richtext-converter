@@ -7,5 +7,5 @@
   },
   "files": ["contentful-richtext-converter.ts"],
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "playground", "**/*.test.js"]
+  "exclude": ["node_modules", "playground", "tests"]
 }

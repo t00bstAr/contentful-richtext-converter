@@ -3,7 +3,8 @@ if (typeof require !== "undefined" && typeof __dirname !== "undefined") {
 	moduleType = 'CJS'
 }
 import {fixTagsAndSpaces, removeDivsAndSpans} from "./src/html-manipulation";
-import {nodesToContentful, nodesToHtml} from "./src/nodes-conversion-handler";
+import {nodesToContentful} from "./src/nodes-conversion-handler";
+import {nodesToHtml} from "./src/richtext-to-html-handler";
 
 export interface Settings {
     fixTagsAndSpaces: boolean,
@@ -54,7 +55,7 @@ export function htmlToRichText(html:string, options?:Partial<Settings>){
 	return data
 
 }
-export function richTextToHtml(json:any){
-	if(typeof json.content === 'undefined') return ''
-	return nodesToHtml(json);
+export function richTextToHtml(document:any){
+	if(typeof document.content === 'undefined') return ''
+	return nodesToHtml(document);
 }
